@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Project 2',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true
       ),
       home: const ProjectTwoPage(),
     );

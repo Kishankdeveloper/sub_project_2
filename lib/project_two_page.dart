@@ -16,8 +16,13 @@ class _ProjectTwoPageState extends State<ProjectTwoPage> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text("I am project_1")
+          Text("I am project_1", style: TextStyle(
+              color: Colors.red,
+              fontWeight: FontWeight.w500,
+              fontSize: 25
+          ),),
         ],
       ),
     );
