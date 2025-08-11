@@ -44,33 +44,33 @@ class _ProjectTwoPageState extends State<ProjectTwoPage> {
     final students = {
       "101": {
         "rollNumber": "STU-101",
-        "name": "Alice Johnson",
+        "name": "Aarav Sharma",
         "dob": "2002-03-15",
-        "fatherName": "Michael Johnson",
+        "fatherName": "Rajesh Sharma",
         "course": "B.Sc",
         "branch": "Mathematics",
       },
       "102": {
         "rollNumber": "STU-102",
-        "name": "Bob Smith",
+        "name": "Priya Verma",
         "dob": "2001-07-22",
-        "fatherName": "David Smith",
+        "fatherName": "Suresh Verma",
         "course": "B.Tech",
         "branch": "Mechanical Engineering",
       },
       "103": {
         "rollNumber": "STU-103",
-        "name": "Clara Brown",
+        "name": "Rohan Iyer",
         "dob": "2003-11-05",
-        "fatherName": "Robert Brown",
+        "fatherName": "Anil Iyer",
         "course": "B.Com",
         "branch": "Accounting",
       },
       "104": {
         "rollNumber": "STU-104",
-        "name": "Daniel Lee",
+        "name": "Sneha Reddy",
         "dob": "2000-12-19",
-        "fatherName": "Steven Lee",
+        "fatherName": "Prakash Reddy",
         "course": "B.Tech",
         "branch": "Computer Science",
       },
@@ -116,16 +116,16 @@ class _ProjectTwoPageState extends State<ProjectTwoPage> {
             Text(
               "Student Details",
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context).primaryColor,
+                color: Colors.red.shade600,
               ),
             ),
             const SizedBox(height: 12),
 
             // Details list
-            _buildDetailRow(Icons.badge, "Roll Number", studentDetails!['rollNumber']),
             _buildDetailRow(Icons.person, "Name", studentDetails!['name']),
+            _buildDetailRow(Icons.badge, "Roll Number", studentDetails!['rollNumber']),
             _buildDetailRow(Icons.cake, "DOB", studentDetails!['dob']),
             _buildDetailRow(Icons.family_restroom, "Father's Name", studentDetails!['fatherName']),
             _buildDetailRow(Icons.school, "Course", studentDetails!['course']),
@@ -136,8 +136,14 @@ class _ProjectTwoPageState extends State<ProjectTwoPage> {
     );
   }
   Widget _buildDetailRow(IconData icon, String label, String value) {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.symmetric(vertical: 6),
+      margin: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.blue.shade400, width: 1),
+        color: Colors.blue.shade600
+      ),
       child: Row(
         children: [
           Icon(icon, color: Colors.blueAccent),
