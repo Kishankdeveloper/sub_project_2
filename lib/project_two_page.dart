@@ -102,21 +102,60 @@ class _ProjectTwoPageState extends State<ProjectTwoPage> {
     }
 
     return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 6,
+      margin: const EdgeInsets.all(16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Roll Number: ${studentDetails!['rollNumber']}", style: const TextStyle(fontSize: 18)),
-            Text("Name: ${studentDetails!['name']}", style: const TextStyle(fontSize: 18)),
-            Text("DOB: ${studentDetails!['dob']}", style: const TextStyle(fontSize: 18)),
-            Text("Father's Name: ${studentDetails!['fatherName']}", style: const TextStyle(fontSize: 18)),
-            Text("Course: ${studentDetails!['course']}", style: const TextStyle(fontSize: 18)),
-            Text("Branch: ${studentDetails!['branch']}", style: const TextStyle(fontSize: 18)),
+            // Header
+            Text(
+              "Student Details",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            const SizedBox(height: 12),
+
+            // Details list
+            _buildDetailRow(Icons.badge, "Roll Number", studentDetails!['rollNumber']),
+            _buildDetailRow(Icons.person, "Name", studentDetails!['name']),
+            _buildDetailRow(Icons.cake, "DOB", studentDetails!['dob']),
+            _buildDetailRow(Icons.family_restroom, "Father's Name", studentDetails!['fatherName']),
+            _buildDetailRow(Icons.school, "Course", studentDetails!['course']),
+            _buildDetailRow(Icons.computer, "Branch", studentDetails!['branch']),
           ],
         ),
+      ),
+    );
+  }
+  Widget _buildDetailRow(IconData icon, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        children: [
+          Icon(icon, color: Colors.blueAccent),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              "$label: ",
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text(
+              value,
+              style: const TextStyle(fontSize: 16, color: Colors.black87),
+            ),
+          ),
+        ],
       ),
     );
   }
