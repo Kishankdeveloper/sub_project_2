@@ -15,18 +15,27 @@ class _ProjectTwoPageState extends State<ProjectTwoPage> {
   @override
   void initState() {
     super.initState();
-    _loadStudentDetails();
+    _loadStudentDetails(widget.userId);
   }
 
-  void _loadStudentDetails() async {
+  @override
+  void didUpdateWidget(covariant ProjectTwoPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.userId != widget.userId) {
+      _loadStudentDetails(widget.userId); // Reload details for new ID
+    }
+  }
+
+  void _loadStudentDetails(String userId) async {
     setState(() {
       isLoading = true;
+      studentDetails = null;
     });
 
     await Future.delayed(const Duration(seconds: 3)); // Simulated API delay
 
     setState(() {
-      studentDetails = _getStudentDetails(widget.userId);
+      studentDetails = _getStudentDetails(userId);
       isLoading = false;
     });
   }
